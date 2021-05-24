@@ -48,6 +48,7 @@ class ConditionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "숙소찾기"
         self.BeforeButton.setTitle("", for: .normal)
         self.AfterButton.setTitle("다음", for: .normal)
         initCalendarView()
@@ -68,12 +69,14 @@ class ConditionViewController: UIViewController {
     
     @IBAction func pressedNextButton(_ sender: Any) {
         if currentState == .people{
-            //AlamofireRequest
+            // request
+            performSegue(withIdentifier: "RoomInformationViewController", sender: nil)
             return
         }
         self.currentStateInt += 1
         self.updatecurrentState()
         self.conditionViews.setContentOffset(CGPoint(x: conditionViews.contentSize.width/3 * CGFloat(currentState.value), y: 0), animated: true)
+        
     }
     
     @objc func conditionDataUpdate() {

@@ -72,6 +72,7 @@ class SearchViewController: UITableViewController {
     private func setupSearchController() {
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.title = "숙소찾기"
         self.searchController.automaticallyShowsCancelButton = false
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchBar.delegate = self
