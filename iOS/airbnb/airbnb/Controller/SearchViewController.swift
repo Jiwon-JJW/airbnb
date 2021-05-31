@@ -21,6 +21,7 @@ class SearchViewController: UITableViewController {
     
     private var suggestionController: SuggestionsTableViewController!
     private var selectedData: String = ""
+    private var tripPlace: [TripPlace] = []
     
     private var places: [MKMapItem]? {
         didSet {
@@ -37,26 +38,17 @@ class SearchViewController: UITableViewController {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        locationManager.delegate = self
-
-        suggestionController = SuggestionsTableViewController(style: .grouped)
-        suggestionController.tableView.delegate = self
-
-        searchController = UISearchController(searchResultsController: suggestionController)
-        searchController.searchResultsUpdater = suggestionController
-
-        let name = UIApplication.willEnterForegroundNotification
-        foregroundRestorationObserver = NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil, using: { [ unowned self ] (_) in
-            self.requestLocation()
-        })
-
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        
+        setupSuggestionController()
         setupSearchController()
+        
+        let name = UIApplication.willEnterForegroundNotification
+        foregroundRestorationObserver = NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil, using: { [ weak self ] (_) in
+            self?.requestLocation()
+        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -69,9 +61,17 @@ class SearchViewController: UITableViewController {
         requestLocation()
     }
     
+    private func setupSuggestionController() {
+        suggestionController = SuggestionsTableViewController(style: .grouped)
+        suggestionController.tableView.delegate = self
+    }
+    
     private func setupSearchController() {
+        searchController = UISearchController(searchResultsController: suggestionController)
+        searchController.searchResultsUpdater = suggestionController
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.title = "숙소찾기"
         self.searchController.automaticallyShowsCancelButton = false
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchBar.delegate = self
@@ -85,25 +85,33 @@ class SearchViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let nextViewController = segue.destination as? ConditionViewController else {
+        guard let nextViewController = segue.destination as? FindingAccommdationViewController else {
             return
         }
         nextViewController.takelocationBeforeController(location: selectedData)
+    }
+    
+    func configure(tripPlace: [TripPlace]) {
+        self.tripPlace = tripPlace
     }
 }
 
 extension SearchViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return places?.count ?? 0
+        return tripPlace.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchRegion", for: indexPath)
-        
-        if let mapItem = places?[indexPath.row] {
-            cell.textLabel?.text = mapItem.name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as? SearchTableViewCell else {
+            return SearchTableViewCell()
         }
+        
+        cell.update(name: tripPlace[indexPath.row].name, imageUrl: tripPlace[indexPath.row].imageUrl)
+        
+//        if let mapItem = places?[indexPath.row] {
+//            cell.textLabel?.text = mapItem.name
+//        }
         return cell
     }
     
@@ -135,7 +143,6 @@ extension SearchViewController: UISearchBarDelegate {
         localSearch?.start { [weak self] (response, error) in
 
             guard error == nil else {
-                print((String(describing: error)))
                 return
             }
             
