@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Gj-gu-wZi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Gj-gu-wZi">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -330,7 +330,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="80" id="gF8-aR-dKD" customClass="SearchTableViewCell" customModule="airbnb" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="390" height="80"/>
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gF8-aR-dKD" id="N5q-NQ-mDn">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
@@ -756,7 +756,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationPeoplecondition" id="Uec-WW-wDw" userLabel="locationPeoplecondition" customClass="FindingAccommodationViewTableViewCell" customModule="airbnb" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uec-WW-wDw" id="X0I-yJ-auw">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -783,7 +783,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateCostcondition" id="YdC-8S-2zq" customClass="FindingAccommodationTableViewCell" customModule="airbnb" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.666667938232422" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="68.000001907348633" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YdC-8S-2zq" id="yNj-kf-LY6">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -1032,13 +1032,36 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61w-Gf-EGB">
+                                <rect key="frame" x="162.66666666666666" y="582" width="65" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2PS-fb-2Bo"/>
+                                    <constraint firstAttribute="width" constant="65" id="Vt8-MB-ZRc"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="지도" image="map" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="X7v-EP-CPO" kind="show" id="B91-xF-eeH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gNp-6A-rvd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jZI-e9-1le" firstAttribute="top" secondItem="gNp-6A-rvd" secondAttribute="top" id="Cyr-kD-5Mq"/>
                             <constraint firstItem="jZI-e9-1le" firstAttribute="leading" secondItem="gNp-6A-rvd" secondAttribute="leading" id="Idm-fS-IKk"/>
+                            <constraint firstItem="61w-Gf-EGB" firstAttribute="centerX" secondItem="gNp-6A-rvd" secondAttribute="centerX" id="POz-4D-2Ie"/>
                             <constraint firstItem="gNp-6A-rvd" firstAttribute="trailing" secondItem="jZI-e9-1le" secondAttribute="trailing" id="dW4-zk-IuR"/>
+                            <constraint firstItem="61w-Gf-EGB" firstAttribute="bottom" secondItem="jZI-e9-1le" secondAttribute="bottom" constant="-16" id="p7f-DD-HXN"/>
                             <constraint firstItem="gNp-6A-rvd" firstAttribute="bottom" secondItem="jZI-e9-1le" secondAttribute="bottom" constant="50" id="scv-BF-LbI"/>
                         </constraints>
                     </view>
@@ -1053,10 +1076,44 @@
             </objects>
             <point key="canvasLocation" x="4600" y="87.440758293838854"/>
         </scene>
+        <!--Detail Map View Controller-->
+        <scene sceneID="1wx-24-CKp">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="X7v-EP-CPO" customClass="DetailMapViewController" customModule="airbnb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mbg-Zd-UIz">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2W5-Gr-E64">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2W5-Gr-E64" firstAttribute="leading" secondItem="Mbg-Zd-UIz" secondAttribute="leading" id="1Lo-XJ-h9G"/>
+                            <constraint firstItem="2W5-Gr-E64" firstAttribute="top" secondItem="Mbg-Zd-UIz" secondAttribute="top" id="8dO-vI-0JJ"/>
+                            <constraint firstAttribute="trailing" secondItem="2W5-Gr-E64" secondAttribute="trailing" id="UGl-ZP-Kmd"/>
+                            <constraint firstItem="2W5-Gr-E64" firstAttribute="width" secondItem="Mbg-Zd-UIz" secondAttribute="width" id="WvC-sf-NRa"/>
+                            <constraint firstItem="2W5-Gr-E64" firstAttribute="height" secondItem="Mbg-Zd-UIz" secondAttribute="height" id="gbm-MU-fdF"/>
+                            <constraint firstAttribute="bottom" secondItem="2W5-Gr-E64" secondAttribute="bottom" id="i1o-Q2-kds"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dcE-33-uCb"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="2W5-Gr-E64" id="krp-XK-7gm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucU-Js-PFT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5430.7692307692305" y="87.440758293838854"/>
+        </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="mainView" width="720" height="937"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
