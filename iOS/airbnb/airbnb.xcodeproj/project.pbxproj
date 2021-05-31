@@ -12,6 +12,7 @@
 		8255E5B8265E2F6100FD066D /* RoomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255E5B6265E2F6100FD066D /* RoomEntity.swift */; };
 		825702E02653AE99009237BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825702DF2653AE99009237BE /* SearchViewController.swift */; };
 		825745A7265A4A310021371B /* FindingAccommodationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825745A6265A4A310021371B /* FindingAccommodationTableViewCell.swift */; };
+		827DEA472664CC7E009373F1 /* OAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DEA462664CC7E009373F1 /* OAuthManager.swift */; };
 		827F482F265F35EE00DC2EFF /* SwiftCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 827F482E265F35EE00DC2EFF /* SwiftCharts */; };
 		827F4830265F35EE00DC2EFF /* SwiftCharts in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 827F482E265F35EE00DC2EFF /* SwiftCharts */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		827F4834265F365C00DC2EFF /* CubicChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827F4833265F365C00DC2EFF /* CubicChart.swift */; };
@@ -91,6 +92,7 @@
 		8255E5B6265E2F6100FD066D /* RoomEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomEntity.swift; sourceTree = "<group>"; };
 		825702DF2653AE99009237BE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		825745A6265A4A310021371B /* FindingAccommodationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingAccommodationTableViewCell.swift; sourceTree = "<group>"; };
+		827DEA462664CC7E009373F1 /* OAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthManager.swift; sourceTree = "<group>"; };
 		827F4833265F365C00DC2EFF /* CubicChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicChart.swift; sourceTree = "<group>"; };
 		827F4835265F368E00DC2EFF /* ChartDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDefault.swift; sourceTree = "<group>"; };
 		827F4837265F375700DC2EFF /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				D4DDA67E265361BE00FE52FA /* Network.swift */,
 				D4DDA6862653627100FE52FA /* EndPoint.swift */,
 				D4DDA69F265376E500FE52FA /* MainPageDTO.swift */,
+				827DEA462664CC7E009373F1 /* OAuthManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				D4DDA67F265361BE00FE52FA /* Network.swift in Sources */,
 				D4DDA752265DE35B00FE52FA /* TripPlaceCollectionViewCell.swift in Sources */,
 				D4DDA6D126563CA400FE52FA /* SuggestionsTableViewController.swift in Sources */,
+				827DEA472664CC7E009373F1 /* OAuthManager.swift in Sources */,
 				D4DDA766265E2AE700FE52FA /* RecommendTripCollectionViewCell.swift in Sources */,
 				D4DDA721265BD86300FE52FA /* RoomInformationViewController.swift in Sources */,
 				82C402162657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift in Sources */,
