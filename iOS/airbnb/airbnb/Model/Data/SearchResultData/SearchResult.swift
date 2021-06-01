@@ -7,15 +7,10 @@
 
 import Foundation
 
-final class SearchResult: Decodable {
+struct SearchResult: Decodable {
     private(set) var properties: [RoomEntity]
     
-    init() {
-        self.properties = []
-    }
-    
-    func update(properties: [RoomEntity]) {
+    init(properties: [RoomEntity]) {
         self.properties = properties
-        NotificationCenter.default.post(name: Notification.roomEntityUpdate, object: self)
     }
 }

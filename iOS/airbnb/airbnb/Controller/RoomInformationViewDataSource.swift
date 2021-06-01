@@ -9,7 +9,7 @@ import UIKit
 
 class RoomInformationViewDataSource: NSObject, UICollectionViewDataSource {
 
-    private let searchResult: SearchResult
+    private var searchResult: SearchResult
     
     init(searchResult: SearchResult) {
         self.searchResult = searchResult
@@ -30,6 +30,10 @@ class RoomInformationViewDataSource: NSObject, UICollectionViewDataSource {
         cell.priceLabel.text = String(searchResult.properties[indexPath.row].pricePerNight)
         cell.totalPriceLabel.text = String(searchResult.properties[indexPath.row].totalPrice)
         return cell
+    }
+    
+    func update(searchResult: SearchResult){
+        self.searchResult = searchResult
     }
 }
 
