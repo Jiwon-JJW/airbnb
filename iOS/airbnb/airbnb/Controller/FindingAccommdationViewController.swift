@@ -131,10 +131,6 @@ class FindingAccommdationViewController: UIViewController {
             maxCost: findingAccommdationCondition.decimalWon(value: findingAccommdationCondition.maxCostDescription), averageCost: "0")
     }
     
-    //    @objc func costGraphDataUpdate() {
-    //        costGraphView.update(minCost: "₩10000", maxCost: "₩160000", averageCost: "qweqweqwe")
-    //    }
-    
     @IBAction func pressedPeopleMinus(_ sender: Any) {
         self.findingAccommdationCondition.update(people: 1, isAdd: false)
     }
@@ -144,7 +140,6 @@ class FindingAccommdationViewController: UIViewController {
     }
     
     @objc func rangeSliderValueChanged(_ rangeSlider: RangeSlider) {
-        
         let minCost = Int(rangeSlider.lowerValue*1000000)
         let maxCost = Int(rangeSlider.upperValue*1000000)
         findingAccommdationCondition.update(minCost: minCost)

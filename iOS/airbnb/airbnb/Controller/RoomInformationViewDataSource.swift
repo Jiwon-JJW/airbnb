@@ -9,7 +9,7 @@ import UIKit
 
 class RoomInformationViewDataSource: NSObject, UICollectionViewDataSource {
 
-    private var searchResult: SearchResult
+    private (set) var searchResult: SearchResult
     
     init(searchResult: SearchResult) {
         self.searchResult = searchResult
