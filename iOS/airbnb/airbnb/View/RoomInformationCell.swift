@@ -27,6 +27,5 @@ class RoomInformationCell: UICollectionViewCell {
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
             heartButton.tintColor = .white
         }
-
     }
 }

@@ -27,6 +27,7 @@ class RoomInformationViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         self.navigationItem.title = "숙소찾기"
         self.roomInformationCollectionView.dataSource = roomInformationViewDataSource
+        self.roomInformationCollectionView.setContentOffset((roomInformationCollectionView.cellForItem(at: IndexPath(row: 3, section: 0))?.frame.origin)!, animated: true)
     }
     
     func insert(searchResult: SearchResult) {

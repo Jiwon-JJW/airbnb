@@ -19,6 +19,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     private let network = Network()
     private var mainPage = MainPageDTO(locations: [], categories: [])
     
+    private var oAuthManager: OAuthManager? = nil
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.tripPlaceCollectionViewDataSource = TripPlaceCollectionViewDataSource(tripPlace: [])
         self.recommendTripCollectionViewDataSource = RecommendTripCollectionViewDataSource(recommendTrip: [])
@@ -42,6 +44,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTripPlaceCollectionView), name: Notification.tripPlaceDataUpdate, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadRecommendTripCollectionView), name: Notification.recommendTripDataUpdate, object: nil)
+        self.oAuthManager = OAuthManager.init(parentViewController: self)
+        self.oAuthManager?.excuteOAuth()
     }
     
     func fetchMainPage() {
