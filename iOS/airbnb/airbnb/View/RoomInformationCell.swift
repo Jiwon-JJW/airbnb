@@ -19,6 +19,15 @@ class RoomInformationCell: UICollectionViewCell {
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
+    func update(imageUrl: String, rating: String, reviewCount: String,
+                roomName: String, price: String, totalPrice: String) {
+        roomImageView.load(url: imageUrl)
+        ratingLabel.text = rating
+        reviewCountLabel.text = reviewCount
+        roomNameLabel.text = roomName
+        priceLabel.text = price
+        totalPriceLabel.text = totalPrice
+    }
     @IBAction func heartButtonTouched(_ sender: UIButton) {
         
         if sender.currentImage == UIImage(systemName: "heart") {
@@ -28,6 +37,5 @@ class RoomInformationCell: UICollectionViewCell {
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
             heartButton.tintColor = .white
         }
-
     }
 }

@@ -18,7 +18,16 @@ class MapCardCell: UICollectionViewCell {
         roomImageView.load(url: imageUrl)
         ratingLabel.text = rating
         reviewCountLabel.text = reviewCount
-        roomNameLabel.text = roomeName
+        settingLabelParagraphStyle(text: roomeName)
+        //roomNameLabel.text = roomeName
         priceLabel.text = price
+    }
+    
+    func settingLabelParagraphStyle(text: String?) {
+        let attrString = NSMutableAttributedString(string: text ?? "")
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        roomNameLabel.attributedText = attrString
     }
 }

@@ -18,15 +18,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     
+    private var searchResult: SearchResult
     private var mapCardDataSource: MapCardDataSource
+    private var customAnnotations: [CustomAnnotation]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.mapCardDataSource = MapCardDataSource(searchResult: SearchResult(properties: []))
+        self.searchResult = SearchResult(properties: [])
+        self.mapCardDataSource = MapCardDataSource(searchResult: searchResult)
+        self.customAnnotations = []
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.mapCardDataSource = MapCardDataSource(searchResult: SearchResult(properties: []))
+        self.searchResult = SearchResult(properties: [])
+        self.mapCardDataSource = MapCardDataSource(searchResult: searchResult)
+        self.customAnnotations = []
         super.init(coder: coder)
     }
     
@@ -42,9 +48,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.mapCardCollectionView.dataSource = mapCardDataSource
         mapView.showsUserLocation = true
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        goLocation(latitude: 37.484710, longtude: 127.033925, delta: 0.01)
-        let customAnnotation = CustomAnnotation(title: "양재역", coordinate: CLLocationCoordinate2D(latitude: 37.484710, longitude: 127.033925))
-        mapView.addAnnotation(customAnnotation)
+        goLocation(latitude: 37.53364, longtude: 126.98, delta: 0.17)
+        self.customAnnotations = createCustomAnnotation()
+        mapView.addAnnotations(customAnnotations)
     }
     
     func test(index: Int) {
@@ -57,6 +63,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func insert(searchResult: SearchResult) {
+        self.searchResult = searchResult
         self.mapCardDataSource.update(searchResult: searchResult)
     }
     
@@ -79,14 +86,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         annotation.title = title
         return annotation
     }
+    
+    func createCustomAnnotation() -> [CustomAnnotation] {
+        var annotations: [CustomAnnotation]
+        annotations = searchResult.properties.map { room in
+            CustomAnnotation(title: room.pricePerNight.decimalWon(), coordinate: CLLocationCoordinate2D(latitude: room.latitude, longitude: room.longitude))
+        }
+        return annotations
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         var index = 0
-        for i in 0..<mapView.annotations.count {
-            if mapView.annotations[i] === view.annotation {
+        for i in 0..<customAnnotations.count {
+            if customAnnotations[i] === view.annotation {
                 index = i
                 break
             }

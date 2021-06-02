@@ -29,21 +29,11 @@ class MapCardDataSource: NSObject, UICollectionViewDataSource {
                     rating: searchResult.properties[indexPath.row].ratingDescription,
                     reviewCount: searchResult.properties[indexPath.row].reviewCountDescription,
                     roomeName: searchResult.properties[indexPath.row].title,
-                    price: searchResult.properties[indexPath.row].decimalWon(value: searchResult.properties[indexPath.row].priceDescription))
+                    price: searchResult.properties[indexPath.row].priceDescription)
         return cell
     }
     
     func update(searchResult: SearchResult) {
         self.searchResult = searchResult
     }
-    
-//    func createCustomAnnotation() -> [CustomAnnotation] {
-//        var annotations: [CustomAnnotation]
-//
-//        annotations = searchResult.properties.map { room in
-//            CustomAnnotation(title: room.decimalWon(value: room.priceDescription), coordinate: CLLocationCoordinate2D(latitude: room.latitude, longitude: room.longitude))
-//        }
-//    }
-// 이 함수를 mapViewController에서 호출해서 Annotations에 넣는다.
-// mapView.annotations = createCustomAnnotation()
 }

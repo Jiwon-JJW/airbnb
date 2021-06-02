@@ -39,9 +39,7 @@ class RoomInformationViewController: UIViewController {
         guard let viewController = segue.destination as? MapViewController else {
             return
         }
-        DispatchQueue.global().async {
-            viewController.insert(searchResult: self.roomInformationViewDataSource.searchResult)
-        }
+        viewController.insert(searchResult: self.roomInformationViewDataSource.searchResult)
     }
     
     @IBAction func mapButtonTouched(_ sender: UIButton) {

@@ -17,9 +17,15 @@ struct RoomEntity: Decodable {
     private(set) var totalPrice: Int
     private(set) var reviewCount: Int
     private(set) var rating: Double
+    private(set) var latitude: Double
+    private(set) var longitude: Double
     
     var priceDescription: String {
-        return "\(pricePerNight)"
+        return "\(pricePerNight.decimalWon()) /박"
+    }
+
+    var totalPriceDescription: String {
+        return "총액 \(totalPrice.decimalWon())"
     }
     
     var reviewCountDescription: String {
@@ -29,14 +35,13 @@ struct RoomEntity: Decodable {
     var ratingDescription: String {
         return "\(rating)"
     }
-    
-    func decimalWon(value: String) -> String {
-        let price = Int(value.replacingOccurrences(of: ",", with: "").replacingOccurrences(of: "원", with: "")) ?? 0
-        
+}
+
+extension Int {
+    func decimalWon() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-        let result = numberFormatter.string(from: NSNumber(value: price))! + "원"
-        
+        let result = "₩" + numberFormatter.string(from: NSNumber(value: self))!
         return result
     }
 }
