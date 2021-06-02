@@ -34,4 +34,16 @@ class RoomInformationViewController: UIViewController {
         self.roomInformationViewDataSource.update(searchResult: searchResult)
         self.roomInformationCollectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        guard let viewController = segue.destination as? MapViewController else {
+            return
+        }
+        viewController.insert(searchResult: self.roomInformationViewDataSource.searchResult)
+    }
+    
+    @IBAction func mapButtonTouched(_ sender: UIButton) {
+        performSegue(withIdentifier: "MapViewController", sender: sender)
+    }
 }

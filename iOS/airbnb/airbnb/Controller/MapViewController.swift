@@ -11,25 +11,60 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapCardCollectionView: UICollectionView!
     
-    var mapItems: [MKMapItem]?
-    var boundingRegion: MKCoordinateRegion?
+    private var mapItems: [MKMapItem]?
+    private var boundingRegion: MKCoordinateRegion?
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
+    
+    private var searchResult: SearchResult
+    private var mapCardDataSource: MapCardDataSource
+    private var customAnnotations: [CustomAnnotation]
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.searchResult = SearchResult(properties: [])
+        self.mapCardDataSource = MapCardDataSource(searchResult: searchResult)
+        self.customAnnotations = []
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.searchResult = SearchResult(properties: [])
+        self.mapCardDataSource = MapCardDataSource(searchResult: searchResult)
+        self.customAnnotations = []
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        self.mapCardCollectionView.dataSource = mapCardDataSource
         mapView.showsUserLocation = true
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        goLocation(latitude: 37.484710, longtude: 127.033925, delta: 0.01)
-        let customAnnotation = CustomAnnotation(title: "양재역", coordinate: CLLocationCoordinate2D(latitude: 37.484710, longitude: 127.033925))
-        mapView.addAnnotation(customAnnotation)
+        goLocation(latitude: 37.53364, longtude: 126.98, delta: 0.17)
+        self.customAnnotations = createCustomAnnotation()
+        mapView.addAnnotations(customAnnotations)
+    }
+    
+    func test(index: Int) {
+        self.mapCardCollectionView.setContentOffset(CGPoint(x: self.mapCardCollectionView.frame.width * CGFloat(index), y: 0), animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.mapCardCollectionView.reloadData()
+    }
+    
+    func insert(searchResult: SearchResult) {
+        self.searchResult = searchResult
+        self.mapCardDataSource.update(searchResult: searchResult)
     }
     
     func goLocation(latitude: CLLocationDegrees,
@@ -51,62 +86,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         annotation.title = title
         return annotation
     }
-}
-class CustomAnnotation: NSObject, MKAnnotation{
-    let title: String?
-    let coordinate: CLLocationCoordinate2D
-    let subtitle: String?
     
-    init(title: String, coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.coordinate = coordinate
-        self.subtitle = "123,123원"
-        super.init()
+    func createCustomAnnotation() -> [CustomAnnotation] {
+        var annotations: [CustomAnnotation]
+        annotations = searchResult.properties.map { room in
+            CustomAnnotation(title: room.pricePerNight.decimalWon(), coordinate: CLLocationCoordinate2D(latitude: room.latitude, longitude: room.longitude))
+        }
+        return annotations
     }
 }
 
-class CustomMarkerAnnotationView: MKMarkerAnnotationView {
-    override var annotation: MKAnnotation? {
-      willSet {
-        // 1
-        guard let custom = newValue as? CustomAnnotation else {
-          return
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        var index = 0
+        for i in 0..<customAnnotations.count {
+            if customAnnotations[i] === view.annotation {
+                index = i
+                break
+            }
         }
-        canShowCallout = true
-        calloutOffset = CGPoint(x: -5, y: 5)
-        rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        
-      }
-    }
-}
-class CustomAnnotationView: MKAnnotationView {
-    override var annotation: MKAnnotation? {
-      willSet {
-        guard let custom = newValue as? CustomAnnotation else {
-          return
-        }
-        
-        frame = CGRect(x: 0, y: 0, width: 95, height: 28)
-        backgroundColor = .white
-        self.layer.cornerRadius = 10
-        let label = UILabel()
-        label.text = custom.subtitle
-        label.frame = frame
-        label.textAlignment = .center
-        self.addSubview(label)
-        
-        let detailLabel = UILabel()
-        detailLabel.numberOfLines = 0
-        detailLabel.font = detailLabel.font.withSize(12)
-        detailLabel.text = custom.subtitle
-        detailCalloutAccessoryView = detailLabel
-        
-        centerOffset = CGPoint(x: 0, y: 0)
-        canShowCallout = true
-        calloutOffset = CGPoint(x: -5, y: 5)
-        let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 48, height: 48)))
-        mapsButton.setBackgroundImage(UIImage(systemName: "map"), for: .normal)
-        rightCalloutAccessoryView = mapsButton
-      }
+        test(index: index)
     }
 }
