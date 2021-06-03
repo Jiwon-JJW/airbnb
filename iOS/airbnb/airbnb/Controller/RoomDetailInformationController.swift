@@ -73,7 +73,7 @@ class RoomDetailInformationController: UIViewController {
             imageView.load(url: roomDetail.imageUrls[index])
             self.roomImageStackView.addArrangedSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFill
+            imageView.contentMode = .scaleToFill
 //            imageView.widthAnchor.constraint(equalTo: self.roomImageView.widthAnchor).isActive = true
 //            imageView.heightAnchor.constraint(equalTo: self.roomImageView.heightAnchor).isActive = true
             

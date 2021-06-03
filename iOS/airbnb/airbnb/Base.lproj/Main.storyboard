@@ -420,7 +420,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-xC-IRR">
                                         <rect key="frame" x="0.0" y="0.0" width="1170" height="390"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzb-4f-T2h">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kzb-4f-T2h">
                                                 <rect key="frame" x="0.0" y="0.0" width="1170" height="390"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1x-0P-eJF" userLabel="CalendarView">
@@ -724,7 +724,6 @@
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="h1x-0P-eJF" firstAttribute="height" secondItem="Kzb-4f-T2h" secondAttribute="height" id="SBA-lQ-Bss"/>
                                                     <constraint firstItem="GF9-4f-C2r" firstAttribute="leading" secondItem="h1x-0P-eJF" secondAttribute="trailing" id="dzP-Ft-baN"/>
                                                     <constraint firstItem="1o2-kL-6QS" firstAttribute="leading" secondItem="GF9-4f-C2r" secondAttribute="trailing" id="vFR-pK-uJf"/>
                                                 </constraints>
@@ -743,6 +742,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0t4-YB-xzk" secondAttribute="height" multiplier="1:1" id="AZR-nA-iMk"/>
                                     <constraint firstItem="0f4-xC-IRR" firstAttribute="height" secondItem="0t4-YB-xzk" secondAttribute="height" id="Edz-hM-jNb"/>
+                                    <constraint firstItem="h1x-0P-eJF" firstAttribute="width" secondItem="VgX-Q0-naU" secondAttribute="width" id="Gur-K7-XHT"/>
                                     <constraint firstItem="0f4-xC-IRR" firstAttribute="top" secondItem="RFI-Er-Gbk" secondAttribute="top" id="N8E-fs-Uzl"/>
                                     <constraint firstItem="0f4-xC-IRR" firstAttribute="bottom" secondItem="RFI-Er-Gbk" secondAttribute="bottom" id="XpP-CQ-PWZ"/>
                                     <constraint firstItem="RFI-Er-Gbk" firstAttribute="leading" secondItem="0f4-xC-IRR" secondAttribute="leading" id="YLs-4G-z00"/>
