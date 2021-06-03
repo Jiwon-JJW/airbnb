@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapCardCollectionView: UICollectionView!
@@ -21,6 +21,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     private var searchResult: SearchResult
     private var mapCardDataSource: MapCardDataSource
     private var customAnnotations: [CustomAnnotation]
+    private var selectedRoomId: Int = 0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.searchResult = SearchResult(properties: [])
@@ -46,6 +47,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         self.mapCardCollectionView.dataSource = mapCardDataSource
+        self.mapCardCollectionView.delegate = self
         mapView.showsUserLocation = true
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         goLocation(latitude: 37.53364, longtude: 126.98, delta: 0.17)
@@ -93,6 +95,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             CustomAnnotation(title: room.pricePerNight.decimalWon(), coordinate: CLLocationCoordinate2D(latitude: room.latitude, longitude: room.longitude))
         }
         return annotations
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedRoomId = indexPath.row + 1
+        self.performSegue(withIdentifier: "Detail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let nextViewController = segue.destination as? DetailRoomViewController else {
+            return
+        }
+        self.requestRoomDetail(roomId: selectedRoomId, nextViewController: nextViewController)
+    }
+    
+    func requestRoomDetail(roomId: Int, nextViewController: DetailRoomViewController) {
+        let networkManager = Network()
+        let requestURL = MainAPIEndPoint.init(path: "/rooms/\(roomId)", httpMethod: .get)
+        
+        networkManager.request(with: requestURL, dataType: RoomDetailModel.self) { result in
+            switch result {
+            case .success(let data):
+                nextViewController.insert(roomDetailModel: data)
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RoomInformationViewController: UIViewController {
+class RoomInformationViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var roomInformationCollectionView: UICollectionView!
     
     private var roomInformationViewDataSource: RoomInformationViewDataSource
