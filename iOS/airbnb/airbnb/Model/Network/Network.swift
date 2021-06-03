@@ -9,16 +9,18 @@ import Foundation
 import Alamofire
 
 class Network {
+    
     func request<T: Decodable> (with endPoint: Requestable, dataType: T.Type, completion: @escaping (Result<T,AFError>) -> Void) {
         
         guard let url = endPoint.url() else {
             completion(.failure(AFError.createURLRequestFailed(error: NetworkError.url(description: ("Couldn't Create URL")))))
             return
         }
-        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         AF.request(url, method: endPoint.httpMethod)
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: T.self) { response in
+            .responseDecodable(of: T.self, decoder: decoder) { response in
                 switch response.result {
                 case .failure(let error):
                     completion(.failure(error))
@@ -30,6 +32,8 @@ class Network {
     
     static func requestQueryString<T: Decodable> (with endPoint: Requestable, dataType: T.Type, queryParameter: FindingAccommdationCondition, completion: @escaping (Result<T,AFError>) -> Void) {
         
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let url = endPoint.url() else {
             completion(.failure(AFError.createURLRequestFailed(error: NetworkError.url(description: ("Couldn't Create URL")))))
             return
@@ -43,7 +47,7 @@ class Network {
         ]
         
         AF.request(url, method: endPoint.httpMethod, parameters: Parameters, encoding: URLEncoding.queryString)
-            .responseDecodable(of: T.self) { response in
+            .responseDecodable(of: T.self, decoder: decoder) { response in
                 switch response.result {
                 case .failure(let error):
                     completion(.failure(error))

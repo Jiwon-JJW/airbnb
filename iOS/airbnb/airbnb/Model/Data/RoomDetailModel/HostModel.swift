@@ -9,5 +9,7 @@ import Foundation
 
 struct Host: Decodable {
     let name: String
-    let image: String
+    let imageUrl: String
+    
+    static var empty = Self.init(name: "", imageUrl: "")
 }

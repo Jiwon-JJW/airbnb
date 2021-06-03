@@ -32,6 +32,7 @@
 		D417863A26660A44002476FA /* MapCardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417863926660A44002476FA /* MapCardDataSource.swift */; };
 		D417863C26660C5C002476FA /* MapCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417863B26660C5C002476FA /* MapCardCell.swift */; };
 		D417864126668066002476FA /* CustomAnnotaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417864026668066002476FA /* CustomAnnotaionView.swift */; };
+		D417864326675419002476FA /* RoomDetailInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417864226675419002476FA /* RoomDetailInformationController.swift */; };
 		D4DDA63826524ECD00FE52FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDA63726524ECD00FE52FA /* AppDelegate.swift */; };
 		D4DDA63A26524ECD00FE52FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDA63926524ECD00FE52FA /* SceneDelegate.swift */; };
 		D4DDA63C26524ECD00FE52FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDA63B26524ECD00FE52FA /* ViewController.swift */; };
@@ -116,6 +117,7 @@
 		D417863926660A44002476FA /* MapCardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardDataSource.swift; sourceTree = "<group>"; };
 		D417863B26660C5C002476FA /* MapCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardCell.swift; sourceTree = "<group>"; };
 		D417864026668066002476FA /* CustomAnnotaionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotaionView.swift; sourceTree = "<group>"; };
+		D417864226675419002476FA /* RoomDetailInformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailInformationController.swift; sourceTree = "<group>"; };
 		D4DDA63426524ECD00FE52FA /* airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DDA63726524ECD00FE52FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4DDA63926524ECD00FE52FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				827DEA482664D58D009373F1 /* DetailMapViewController.swift */,
 				8297D75A2665FB790033F154 /* MapViewController.swift */,
 				D417863926660A44002476FA /* MapCardDataSource.swift */,
+				D417864226675419002476FA /* RoomDetailInformationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				D4DDA6962653764700FE52FA /* TripPlace.swift in Sources */,
 				8220C8BD2658C6CC00E3F3CA /* FindingAccommdationViewController.swift in Sources */,
 				D4DDA758265DE4FF00FE52FA /* ImageView+Extension.swift in Sources */,
+				D417864326675419002476FA /* RoomDetailInformationController.swift in Sources */,
 				8297D760266678620033F154 /* HostModel.swift in Sources */,
 				D4DDA67F265361BE00FE52FA /* Network.swift in Sources */,
 				D4DDA752265DE35B00FE52FA /* TripPlaceCollectionViewCell.swift in Sources */,

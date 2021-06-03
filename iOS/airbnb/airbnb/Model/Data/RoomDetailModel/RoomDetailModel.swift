@@ -8,23 +8,47 @@
 import Foundation
 
 struct RoomDetailModel: Decodable {
-    let roomImage: [String]
+    let imageUrls: [String]
     let title: String
     let description: String
-    let location: String
+    let locationName: String
     let host: Host
-    let type: String
+    let propertyType: String
     
-    let bed_count: Int //need CodingKey?
-    let bath_cont: Int
-    let max_occupancy: Int //need CodingKey?
+    let bedCount: Int //need CodingKey?
+    let bathCount: Int
+    let maxOccupancy: Int //need CodingKey?
     
     let rating: Double
     let reviewCount: Int
     let pricePerNight: Int
     let cleaningFee: Int
     let latitude: Double
-    let longtitude: Double
+    let longitude: Double
     
-    let occupied_date: [String] //need?
+    var bedCountDescription: String {
+        return "침대 \(bedCount)개"
+    }
+    
+    var bathCoutDescription: String {
+        return "욕실 \(bathCount)개"
+    }
+    
+    var maxOccupancyDesscription: String {
+        return "최대인원 \(maxOccupancy)명"
+    }
+    
+    var ratingDescription: String {
+        return "\(rating)"
+    }
+    
+    var reviewCountDescription: String {
+        return "(후기 \(reviewCount)개)"
+    }
+    
+    var priceDescription: String {
+        return "\(pricePerNight.decimalWon()) /박"
+    }
+    
+    static var empty = Self.init(imageUrls: [], title: "", description: "", locationName: "", host: Host.empty, propertyType: "", bedCount: 0, bathCount: 0, maxOccupancy: 0, rating: 0, reviewCount: 0, pricePerNight: 0, cleaningFee: 0, latitude: 0, longitude: 0)
 }

@@ -29,7 +29,6 @@ class RoomInformationCell: UICollectionViewCell {
         totalPriceLabel.text = totalPrice
     }
     @IBAction func heartButtonTouched(_ sender: UIButton) {
-        
         if sender.currentImage == UIImage(systemName: "heart") {
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             heartButton.tintColor = .red
