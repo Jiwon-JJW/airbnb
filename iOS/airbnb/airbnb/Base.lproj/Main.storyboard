@@ -1263,24 +1263,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onM-Pw-sO2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onM-Pw-sO2">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="333"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UP4-3P-VAC">
-                                        <rect key="frame" x="0.0" y="-44" width="391.33333333333331" height="333"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UP4-3P-VAC">
+                                        <rect key="frame" x="0.0" y="-44" width="390" height="333"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mdg-dx-GVv">
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="333"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Mdg-dx-GVv" secondAttribute="height" multiplier="390:333" id="Y6g-5g-0kq"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Mdg-dx-GVv" firstAttribute="height" secondItem="UP4-3P-VAC" secondAttribute="height" id="iGV-zc-IQU"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="height" secondItem="UVI-2q-k1C" secondAttribute="height" id="3GY-nN-zb2"/>
-                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="trailing" secondItem="KO4-dY-aMG" secondAttribute="trailing" id="8dh-ac-ZU5"/>
-                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="width" secondItem="UVI-2q-k1C" secondAttribute="height" multiplier="195:166" id="9iT-ti-HTv"/>
-                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="leading" secondItem="KO4-dY-aMG" secondAttribute="leading" id="bGP-SU-OfT"/>
-                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="bottom" secondItem="KO4-dY-aMG" secondAttribute="bottom" id="hHs-1e-Vef"/>
-                                    <constraint firstItem="KO4-dY-aMG" firstAttribute="top" secondItem="UP4-3P-VAC" secondAttribute="top" constant="44" id="zJM-Hx-cum"/>
+                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="trailing" secondItem="cnB-1z-bEw" secondAttribute="trailing" id="1Lh-eE-7Vb"/>
+                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="leading" secondItem="cnB-1z-bEw" secondAttribute="leading" id="Ubn-cb-SPI"/>
+                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="height" secondItem="G35-co-Asw" secondAttribute="height" id="lXr-Ip-wcD"/>
+                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="bottom" secondItem="cnB-1z-bEw" secondAttribute="bottom" id="xAp-i9-gGd"/>
+                                    <constraint firstItem="UP4-3P-VAC" firstAttribute="top" secondItem="G35-co-Asw" secondAttribute="top" id="yfK-xA-oKz"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="KO4-dY-aMG"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="UVI-2q-k1C"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="cnB-1z-bEw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="G35-co-Asw"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5A-oT-Bj9">
                                 <rect key="frame" x="16" y="60" width="44" height="44"/>
@@ -1512,6 +1522,7 @@
                         <outlet property="reviewCountLabel" destination="AR4-5b-BLE" id="0Mq-PT-SzS"/>
                         <outlet property="roomImageScrollView" destination="onM-Pw-sO2" id="JQ7-mf-e3Z"/>
                         <outlet property="roomImageStackView" destination="UP4-3P-VAC" id="12b-M6-HHe"/>
+                        <outlet property="roomImageView" destination="Mdg-dx-GVv" id="VdN-Mq-o0P"/>
                         <outlet property="roomNameLabel" destination="04E-1e-Nkc" id="Hyc-JH-Bwb"/>
                     </connections>
                 </viewController>

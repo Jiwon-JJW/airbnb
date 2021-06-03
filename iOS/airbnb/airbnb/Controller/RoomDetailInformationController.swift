@@ -23,6 +23,7 @@ class RoomDetailInformationController: UIViewController {
     @IBOutlet weak var checkInLabel: UILabel!
     @IBOutlet weak var reservationButton: UIButton!
     @IBOutlet weak var hostImageView: UIImageView!
+    @IBOutlet weak var roomImageView: UIImageView!
     
     private var roomDetail: RoomDetailModel
     
@@ -30,7 +31,7 @@ class RoomDetailInformationController: UIViewController {
         self.roomDetail = RoomDetailModel.empty
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         self.roomDetail = RoomDetailModel.empty
         super.init(coder: coder)
@@ -48,6 +49,7 @@ class RoomDetailInformationController: UIViewController {
     }
     
     func updateView() {
+        
         addImageView()
         self.hostImageView.load(url: roomDetail.host.imageUrl)
         self.roomNameLabel.text = roomDetail.title
@@ -61,23 +63,23 @@ class RoomDetailInformationController: UIViewController {
     }
     
     func addImageView() {
-        let width = self.view.frame.width
-        let height = width * (320 / 375)
-        roomDetail.imageUrls.forEach { imageUrl in
-            let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: height)))
-//            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 375/320).isActive = true
-            //imageView.widthAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 375/320).isActive = true
-            imageView.load(url: imageUrl)
+        self.roomImageView.load(url: roomDetail.imageUrls[0])
+        roomImageView.translatesAutoresizingMaskIntoConstraints = false
+        roomImageView.widthAnchor.constraint(equalTo: self.roomImageView.widthAnchor).isActive = true
+        roomImageView.heightAnchor.constraint(equalTo: self.roomImageView.heightAnchor).isActive = true
+        self.roomImageStackView.addArrangedSubview(roomImageView)
+        for index in 1..<roomDetail.imageUrls.count {
+            let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: self.roomImageView.frame.width, height: self.roomImageView.frame.height)))
+            imageView.load(url: roomDetail.imageUrls[index])
+            self.roomImageStackView.addArrangedSubview(imageView)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFill
+//            imageView.widthAnchor.constraint(equalTo: self.roomImageView.widthAnchor).isActive = true
+//            imageView.heightAnchor.constraint(equalTo: self.roomImageView.heightAnchor).isActive = true
             
-
-            if self.roomImageScrollView.subviews.last == nil {
-                self.roomImageStackView.addSubview(imageView)
-            } else {
-                self.roomImageScrollView.subviews.last?.addSubview(imageView)
-            }
-            imageView.contentMode = .scaleToFill
-            print(roomImageStackView.frame.width)
-            print(roomImageScrollView.frame.width)
         }
+        
+        //    roomDetail.imageUrls.forEach { imageUrl in
+        //    }
     }
 }
