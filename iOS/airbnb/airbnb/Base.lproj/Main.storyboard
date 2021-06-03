@@ -1453,6 +1453,9 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showReservationWindow:" destination="M3w-9L-Nk8" eventType="touchUpInside" id="m6T-Pk-VTu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -1533,7 +1536,7 @@
         <!--Final Reservation Controller-->
         <scene sceneID="AKJ-c2-ZeM">
             <objects>
-                <viewController storyboardIdentifier="moudal" id="boK-j5-5dB" customClass="FinalReservationController" customModule="airbnb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reservation" id="boK-j5-5dB" customClass="FinalReservationController" customModule="airbnb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V6m-rK-Y5D">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

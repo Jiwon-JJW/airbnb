@@ -215,7 +215,7 @@ extension FindingAccommdationViewController {
         }
         self.calendarView.frame = CGRect(origin: .zero, size: CGSize(width: contentFirst.frame.width * 0.9, height: contentFirst.frame.height * 0.9))
         contentFirst.addSubview(self.calendarView)
-        self.calendarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        //self.calendarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.calendarView.delegate = calendarDelegate
     }
 }

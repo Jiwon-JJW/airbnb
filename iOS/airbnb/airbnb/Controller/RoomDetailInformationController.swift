@@ -49,7 +49,6 @@ class RoomDetailInformationController: UIViewController {
     }
     
     func updateView() {
-        
         addImageView()
         self.hostImageView.load(url: roomDetail.host.imageUrl)
         self.roomNameLabel.text = roomDetail.title
@@ -68,18 +67,21 @@ class RoomDetailInformationController: UIViewController {
         roomImageView.widthAnchor.constraint(equalTo: self.roomImageView.widthAnchor).isActive = true
         roomImageView.heightAnchor.constraint(equalTo: self.roomImageView.heightAnchor).isActive = true
         self.roomImageStackView.addArrangedSubview(roomImageView)
+        
         for index in 1..<roomDetail.imageUrls.count {
             let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: self.roomImageView.frame.width, height: self.roomImageView.frame.height)))
+            
             imageView.load(url: roomDetail.imageUrls[index])
             self.roomImageStackView.addArrangedSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleToFill
-//            imageView.widthAnchor.constraint(equalTo: self.roomImageView.widthAnchor).isActive = true
-//            imageView.heightAnchor.constraint(equalTo: self.roomImageView.heightAnchor).isActive = true
-            
         }
-        
-        //    roomDetail.imageUrls.forEach { imageUrl in
-        //    }
+    }
+    
+    @IBAction func showReservationWindow(_ sender: Any) {
+        guard let reservation = storyboard?.instantiateViewController(identifier: "reservation") else { return }
+        reservation.view.backgroundColor = UIColor(white: 0, alpha: 0)
+        reservation.modalPresentationStyle = .custom
+        self.present(reservation, animated: true, completion: nil)
     }
 }

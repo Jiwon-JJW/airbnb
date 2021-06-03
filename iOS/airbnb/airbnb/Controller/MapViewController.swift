@@ -99,28 +99,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedRoomId = indexPath.row + 1
-        self.performSegue(withIdentifier: "Detail", sender: nil)
+        self.performSegue(withIdentifier: "RoomDetailInformationController", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard let nextViewController = segue.destination as? DetailRoomViewController else {
+        guard let nextViewController = segue.destination as? RoomDetailInformationController else {
             return
         }
         self.requestRoomDetail(roomId: selectedRoomId, nextViewController: nextViewController)
     }
     
-    func requestRoomDetail(roomId: Int, nextViewController: DetailRoomViewController) {
+    func requestRoomDetail(roomId: Int, nextViewController: RoomDetailInformationController) {
         let networkManager = Network()
         let requestURL = MainAPIEndPoint.init(path: "/rooms/\(roomId)", httpMethod: .get)
         
         networkManager.request(with: requestURL, dataType: RoomDetailModel.self) { result in
             switch result {
             case .success(let data):
-                nextViewController.insert(roomDetailModel: data)
+                nextViewController.insert(roomDetail: data)
             case .failure(let error):
                 print(error)
-                break
             }
         }
     }

@@ -24,7 +24,6 @@
 		8297D75D266675FE0033F154 /* RoomDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297D75C266675FE0033F154 /* RoomDetailModel.swift */; };
 		8297D760266678620033F154 /* HostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297D75F266678620033F154 /* HostModel.swift */; };
 		8297D7622667717B0033F154 /* FinalReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297D7612667717B0033F154 /* FinalReservationController.swift */; };
-		8297D764266776060033F154 /* DetailRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8297D763266776060033F154 /* DetailRoomViewController.swift */; };
 		829DB9C4265645DB0083D153 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 829DB9C3265645DB0083D153 /* FSCalendar */; };
 		82C402162657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C402152657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift */; };
 		82DD85F12658D3650007A29C /* FindingAccommdationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD85F02658D3650007A29C /* FindingAccommdationCondition.swift */; };
@@ -112,7 +111,6 @@
 		8297D75C266675FE0033F154 /* RoomDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailModel.swift; sourceTree = "<group>"; };
 		8297D75F266678620033F154 /* HostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostModel.swift; sourceTree = "<group>"; };
 		8297D7612667717B0033F154 /* FinalReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalReservationController.swift; sourceTree = "<group>"; };
-		8297D763266776060033F154 /* DetailRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoomViewController.swift; sourceTree = "<group>"; };
 		82C402152657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingAccommodationTableViewDataSource.swift; sourceTree = "<group>"; };
 		82DD85F02658D3650007A29C /* FindingAccommdationCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingAccommdationCondition.swift; sourceTree = "<group>"; };
 		82FBF0D326538AB8009B4A1F /* TripPlaceCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				8297D75A2665FB790033F154 /* MapViewController.swift */,
 				D417863926660A44002476FA /* MapCardDataSource.swift */,
 				D417864226675419002476FA /* RoomDetailInformationController.swift */,
-				8297D763266776060033F154 /* DetailRoomViewController.swift */,
 				8297D7612667717B0033F154 /* FinalReservationController.swift */,
 			);
 			path = Controller;
@@ -568,7 +565,6 @@
 				82C402162657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift in Sources */,
 				D4DDA76B265E3F2500FE52FA /* SearchTableViewCell.swift in Sources */,
 				D4DDA63A26524ECD00FE52FA /* SceneDelegate.swift in Sources */,
-				8297D764266776060033F154 /* DetailRoomViewController.swift in Sources */,
 				825745A7265A4A310021371B /* FindingAccommodationTableViewCell.swift in Sources */,
 				D41786112664A79F002476FA /* Notification.swift in Sources */,
 				D417863C26660C5C002476FA /* MapCardCell.swift in Sources */,
