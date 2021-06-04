@@ -52,6 +52,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UICollecti
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         goLocation(latitude: 37.53364, longtude: 126.98, delta: 0.17)
         self.customAnnotations = createCustomAnnotation()
+        mapView.addAnnotations(customAnnotations)
     }
     
     func scrollMapCard(index: Int) {
