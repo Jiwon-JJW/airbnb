@@ -24,9 +24,10 @@ class SearchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func update(name: String, imageUrl: String) {
+    func update(name: String, imageUrl: String, distance: String) {
         self.regionImageView.load(url: imageUrl)
         self.regionNameLabel.text = name
+        self.distanceLabel.text = distance
     }
 
 }

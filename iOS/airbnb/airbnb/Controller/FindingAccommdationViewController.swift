@@ -58,7 +58,7 @@ class FindingAccommdationViewController: UIViewController {
         self.conditionTableView.dataSource = tableViewDataSource
         
         NotificationCenter.default.addObserver(self, selector: #selector(conditionDataUpdate), name: Notification.conditionDataUpdate, object: findingAccommdationCondition)
-        costGraphView.update(minCost: "0원", maxCost: "1,000,000원", averageCost: "")
+        costGraphView.update(minCost: "0원", maxCost: "1,000,000원")
         self.conditionTableView.dataSource = tableViewDataSource
         
         self.costGraphView.rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
@@ -126,7 +126,7 @@ class FindingAccommdationViewController: UIViewController {
     @objc func conditionDataUpdate() {
         self.conditionTableView.reloadData()
         self.adultCountLabel.text = findingAccommdationCondition.peopleCount
-        self.costGraphView.update(minCost: findingAccommdationCondition.minCostDescription, maxCost: findingAccommdationCondition.maxCostDescription, averageCost: "")
+        self.costGraphView.update(minCost: findingAccommdationCondition.minCostDescription, maxCost: findingAccommdationCondition.maxCostDescription)
     }
     
     @IBAction func pressedPeopleMinus(_ sender: Any) {
@@ -200,7 +200,7 @@ extension FindingAccommdationViewController {
                 print(error)
             case .success(let data):
                 self.costGraph = data
-                self.costGraphView.chartInit(data: self.mappingGraphValue())
+                self.costGraphView.chartInit(data: self.mappingGraphValue(), averageCost: self.costGraph.averagePriceDescription)
             }
         }
     }
@@ -211,9 +211,8 @@ extension FindingAccommdationViewController {
         guard let contentFirst = content.subviews.first else {
             return
         }
-        self.calendarView.frame = CGRect(origin: .zero, size: CGSize(width: contentFirst.frame.width * 0.9, height: contentFirst.frame.height * 0.9))
+        self.calendarView.frame = CGRect(origin: .zero, size: CGSize(width: contentFirst.frame.width, height: contentFirst.frame.height))
         contentFirst.addSubview(self.calendarView)
-        //self.calendarView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.calendarView.delegate = calendarDelegate
     }
 }

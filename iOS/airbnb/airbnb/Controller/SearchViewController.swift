@@ -22,6 +22,7 @@ class SearchViewController: UITableViewController {
     private var suggestionController: SuggestionsTableViewController!
     private var selectedData: String = ""
     private var tripPlace: [TripPlace] = []
+    private var distance: [String] = ["차로 30분거리", "차로 1시간거리", "차로 3시간거리", "차로 4시간거리", "비행기로 1시간거리"]
     
     private var places: [MKMapItem]? {
         didSet {
@@ -107,7 +108,7 @@ extension SearchViewController {
             return SearchTableViewCell()
         }
         
-        cell.update(name: tripPlace[indexPath.row].name, imageUrl: tripPlace[indexPath.row].imageUrl)
+        cell.update(name: tripPlace[indexPath.row].name, imageUrl: tripPlace[indexPath.row].imageUrl, distance: distance[indexPath.row])
         
 //        if let mapItem = places?[indexPath.row] {
 //            cell.textLabel?.text = mapItem.name

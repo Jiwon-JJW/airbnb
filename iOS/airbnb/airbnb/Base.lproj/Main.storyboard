@@ -515,6 +515,7 @@
                                                             <constraint firstAttribute="width" secondItem="GF9-4f-C2r" secondAttribute="height" multiplier="1:1" id="JdM-mP-dy3"/>
                                                             <constraint firstItem="uYT-hN-GBV" firstAttribute="leading" secondItem="GF9-4f-C2r" secondAttribute="leading" constant="16" id="Xf1-J9-iaF"/>
                                                             <constraint firstItem="CjP-e0-wdv" firstAttribute="leading" secondItem="uYT-hN-GBV" secondAttribute="leading" id="Yii-JQ-P7M"/>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xRg-fv-DiB" secondAttribute="trailing" constant="332.67000000000002" id="duW-Ku-3eb"/>
                                                             <constraint firstItem="xRg-fv-DiB" firstAttribute="leading" secondItem="GF9-4f-C2r" secondAttribute="leading" constant="16" id="gkG-qP-U6r"/>
                                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="uYT-hN-GBV" secondAttribute="trailing" constant="305.67000000000002" id="jMp-YY-QSU"/>
                                                             <constraint firstItem="VkZ-LE-JBy" firstAttribute="centerY" secondItem="cDY-KD-CuG" secondAttribute="centerY" id="oYU-VE-HuZ"/>
@@ -1753,7 +1754,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="37l-Wb-CIW"/>
+        <segue reference="ygX-vd-EBi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
