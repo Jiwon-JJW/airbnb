@@ -52,11 +52,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UICollecti
         mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         goLocation(latitude: 37.53364, longtude: 126.98, delta: 0.17)
         self.customAnnotations = createCustomAnnotation()
-        mapView.addAnnotations(customAnnotations)
     }
     
-    func test(index: Int) {
-        self.mapCardCollectionView.setContentOffset(CGPoint(x: self.mapCardCollectionView.frame.width * CGFloat(index), y: 0), animated: true)
+    func scrollMapCard(index: Int) {
+        self.mapCardCollectionView.setContentOffset(CGPoint(x: (self.mapCardCollectionView.visibleCells[0].frame.width + 16) * CGFloat(index), y: 0), animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +134,6 @@ extension MapViewController: MKMapViewDelegate {
                 break
             }
         }
-        test(index: index)
+        scrollMapCard(index: index)
     }
 }

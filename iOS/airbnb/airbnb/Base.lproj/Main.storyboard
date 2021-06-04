@@ -515,6 +515,7 @@
                                                             <constraint firstAttribute="width" secondItem="GF9-4f-C2r" secondAttribute="height" multiplier="1:1" id="JdM-mP-dy3"/>
                                                             <constraint firstItem="uYT-hN-GBV" firstAttribute="leading" secondItem="GF9-4f-C2r" secondAttribute="leading" constant="16" id="Xf1-J9-iaF"/>
                                                             <constraint firstItem="CjP-e0-wdv" firstAttribute="leading" secondItem="uYT-hN-GBV" secondAttribute="leading" id="Yii-JQ-P7M"/>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xRg-fv-DiB" secondAttribute="trailing" constant="332.67000000000002" id="duW-Ku-3eb"/>
                                                             <constraint firstItem="xRg-fv-DiB" firstAttribute="leading" secondItem="GF9-4f-C2r" secondAttribute="leading" constant="16" id="gkG-qP-U6r"/>
                                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="uYT-hN-GBV" secondAttribute="trailing" constant="305.67000000000002" id="jMp-YY-QSU"/>
                                                             <constraint firstItem="VkZ-LE-JBy" firstAttribute="centerY" secondItem="cDY-KD-CuG" secondAttribute="centerY" id="oYU-VE-HuZ"/>
@@ -1318,7 +1319,7 @@
                                     <constraint firstAttribute="height" constant="44" id="nXb-bj-vaZ"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="lessthan" catalog="system"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="22"/>
@@ -1666,6 +1667,9 @@
                                         <state key="normal" title="예약하기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="finalReservation:" destination="boK-j5-5dB" eventType="touchUpInside" id="yyI-sa-9gK"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="예약 확정 전에는 요금이 청구되지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tC-Or-Y3Y">
                                         <rect key="frame" x="80" y="291" width="191" height="13.333333333333314"/>
@@ -1824,11 +1828,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="37l-Wb-CIW"/>
+        <segue reference="ygX-vd-EBi"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="lessthan" catalog="system" width="128" height="111"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mainView" width="720" height="937"/>
         <image name="map" catalog="system" width="128" height="110"/>

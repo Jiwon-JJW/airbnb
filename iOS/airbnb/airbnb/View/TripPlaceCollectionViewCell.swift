@@ -12,8 +12,9 @@ class TripPlaceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    func update(id: Int, name: String, imageUrl: String) {
+    func update(id: Int, name: String, imageUrl: String, distance: String) {
         self.regionImageView.load(url: imageUrl)
         self.regionLabel.text = name
+        self.distanceLabel.text = distance
     }
 }

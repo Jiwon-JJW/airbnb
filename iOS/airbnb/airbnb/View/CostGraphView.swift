@@ -27,13 +27,13 @@ class CostGraphView: UIView {
 
     }
     
-    func update(minCost: String, maxCost: String, averageCost: String) {
+    func update(minCost: String, maxCost: String) {
         minimumCostLabel.text = minCost
         maximumCostLabel.text = maxCost
-        averageCostLabel.text = averageCost
     }
     
-    func chartInit(data: [(Int, Int)]) {
+    func chartInit(data: [(Int, Int)], averageCost: String) {
+        averageCostLabel.text = averageCost
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
 
         let chartPoints = data.map{ChartPoint(x: ChartAxisValueInt($0.0, labelSettings: labelSettings), y: ChartAxisValueInt($0.1))}

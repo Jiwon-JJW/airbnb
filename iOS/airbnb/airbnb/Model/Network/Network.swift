@@ -84,6 +84,29 @@ class Network {
                 }
             }
     }
+    
+    static func requestReservation<T: Decodable> (with endPoint: Requestable, dataType: T.Type?, totalPrice: Int, completion: @escaping (Result<String,AFError>) -> Void) {
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        guard let url = endPoint.url() else {
+            completion(.failure(AFError.createURLRequestFailed(error: NetworkError.url(description: ("Couldn't Create URL")))))
+            return
+        }
+        
+        let Parameters = [
+            "propertyId": 1,
+            "checkIn": "2021-06-10",
+            "checkOut": "2021-06-15",
+            "totalPrice": totalPrice
+        ] as [String : Any]
+        
+        AF.request(url, method: endPoint.httpMethod, parameters: Parameters, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseString(completionHandler: { _ in
+                completion(.success(""))
+            })
+    }
 }
 
 enum NetworkError:Error {

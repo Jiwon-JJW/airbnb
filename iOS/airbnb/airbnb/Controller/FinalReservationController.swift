@@ -55,4 +55,18 @@ class FinalReservationController: UIViewController {
         servicePriceLabel.text = self.reservationModel.serviceFee.decimalWon()
         totalPriceLabel.text = self.reservationModel.totalPrice.decimalWon()
     }
+    @IBAction func finalReservation(_ sender: Any) {
+        
+        let request = RoomDetailAPIEndPoint.init(path: "/reservation/1", httpMethod: .post)
+        
+        Network.requestReservation(with: request, dataType: ReservationModel.self, totalPrice: self.reservationModel.totalPrice) { result in
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(_):
+                print("예약성공")
+            }
+        }
+    }
 }
