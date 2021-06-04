@@ -117,7 +117,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, UICollecti
         networkManager.request(with: requestURL, dataType: RoomDetailModel.self) { result in
             switch result {
             case .success(let data):
-                nextViewController.insert(roomDetail: data)
+                nextViewController.insert(roomDetail: data, index: self.selectedRoomId)
             case .failure(let error):
                 print(error)
             }

@@ -68,7 +68,7 @@ class RoomInformationViewController: UIViewController {
             case .failure(let error):
                 print(error)
             case .success(let data):
-                nextViewController.insert(roomDetail: data)
+                nextViewController.insert(roomDetail: data, index: self.roomId)
             }
         })
     }

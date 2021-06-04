@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820042EE2669C17D00815446 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820042ED2669C17D00815446 /* ReservationModel.swift */; };
+		820042F02669D37200815446 /* SendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820042EF2669D37200815446 /* SendModel.swift */; };
 		8220C8BD2658C6CC00E3F3CA /* FindingAccommdationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8220C8BC2658C6CC00E3F3CA /* FindingAccommdationViewController.swift */; };
 		8255E5B7265E2F6100FD066D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255E5B5265E2F6100FD066D /* SearchResult.swift */; };
 		8255E5B8265E2F6100FD066D /* RoomEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8255E5B6265E2F6100FD066D /* RoomEntity.swift */; };
@@ -97,6 +99,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		820042ED2669C17D00815446 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		820042EF2669D37200815446 /* SendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendModel.swift; sourceTree = "<group>"; };
 		8220C8BC2658C6CC00E3F3CA /* FindingAccommdationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingAccommdationViewController.swift; sourceTree = "<group>"; };
 		8255E5B5265E2F6100FD066D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		8255E5B6265E2F6100FD066D /* RoomEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomEntity.swift; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820042EC2669C14200815446 /* ReservationModel */ = {
+			isa = PBXGroup;
+			children = (
+				820042ED2669C17D00815446 /* ReservationModel.swift */,
+				820042EF2669D37200815446 /* SendModel.swift */,
+			);
+			path = ReservationModel;
+			sourceTree = "<group>";
+		};
 		8220C8BB2658C49400E3F3CA /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +373,7 @@
 		D4DDA68B2653722200FE52FA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				820042EC2669C14200815446 /* ReservationModel */,
 				8297D75E266676070033F154 /* RoomDetailModel */,
 				825745AC265B8D690021371B /* SearchResultData */,
 				82DD85EF2658D3530007A29C /* ConditionPageData */,
@@ -549,6 +563,7 @@
 				D4DDA799265F98E000FE52FA /* RangeSliderTrackLayer.swift in Sources */,
 				827F4834265F365C00DC2EFF /* CubicChart.swift in Sources */,
 				827F4838265F375700DC2EFF /* Env.swift in Sources */,
+				820042EE2669C17D00815446 /* ReservationModel.swift in Sources */,
 				825702E02653AE99009237BE /* SearchViewController.swift in Sources */,
 				D4DDA773265E73CF00FE52FA /* CostGraph.swift in Sources */,
 				D417863A26660A44002476FA /* MapCardDataSource.swift in Sources */,
@@ -565,6 +580,7 @@
 				D417864126668066002476FA /* CustomAnnotaionView.swift in Sources */,
 				827DEA472664CC7E009373F1 /* OAuthManager.swift in Sources */,
 				D4DDA766265E2AE700FE52FA /* RecommendTripCollectionViewCell.swift in Sources */,
+				820042F02669D37200815446 /* SendModel.swift in Sources */,
 				D4DDA721265BD86300FE52FA /* RoomInformationViewController.swift in Sources */,
 				82C402162657566A009CCE4B /* FindingAccommodationTableViewDataSource.swift in Sources */,
 				D4DDA76B265E3F2500FE52FA /* SearchTableViewCell.swift in Sources */,

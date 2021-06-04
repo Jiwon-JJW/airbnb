@@ -9,6 +9,27 @@ import UIKit
 
 class FinalReservationController: UIViewController {
     
+    @IBOutlet weak var pricePerDayTitle: UILabel!
+    @IBOutlet weak var priceForDayLabel: UILabel!
+    @IBOutlet weak var roomChargeLabel: UILabel!
+    @IBOutlet weak var taxLabel: UILabel!
+    @IBOutlet weak var cleaningFee: UILabel!
+    @IBOutlet weak var servicePriceLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    
+    private var reservationModel: ReservationModel
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.reservationModel = ReservationModel()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.reservationModel = ReservationModel()
+        super.init(coder: coder)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isUserInteractionEnabled = true
@@ -20,7 +41,18 @@ class FinalReservationController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func reservationConfirmation() {
-        //예약 확정 포스트 날리기
+    func insert(Entity: ReservationModel) {
+        self.reservationModel = Entity
+        self.updateLabel()
+    }
+    
+    func updateLabel() {
+        pricePerDayTitle.text = "\((self.reservationModel.priceForDays / 2).decimalWon()) / 박"
+        priceForDayLabel.text = "\((self.reservationModel.priceForDays / 2).decimalWon()) X 2박"
+        roomChargeLabel.text = self.reservationModel.priceForDays.decimalWon()
+        taxLabel.text = self.reservationModel.tax.decimalWon()
+        cleaningFee.text = self.reservationModel.cleaningFee.decimalWon()
+        servicePriceLabel.text = self.reservationModel.serviceFee.decimalWon()
+        totalPriceLabel.text = self.reservationModel.totalPrice.decimalWon()
     }
 }

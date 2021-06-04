@@ -25,6 +25,7 @@ class RoomDetailInformationController: UIViewController {
     @IBOutlet weak var roomImageView: UIImageView!
     
     private var roomDetail: RoomDetailModel
+    private var selectedIndex: Int = 0
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.roomDetail = RoomDetailModel.empty
@@ -42,8 +43,9 @@ class RoomDetailInformationController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func insert(roomDetail: RoomDetailModel) {
+    func insert(roomDetail: RoomDetailModel, index: Int) {
         self.roomDetail = roomDetail
+        
         updateView()
     }
     
@@ -79,9 +81,19 @@ class RoomDetailInformationController: UIViewController {
     }
     
     @IBAction func showReservationWindow(_ sender: Any) {
-        guard let reservation = storyboard?.instantiateViewController(identifier: "reservation") else { return }
+        guard let reservation = storyboard?.instantiateViewController(identifier: "reservation") as? FinalReservationController else { return }
         reservation.view.backgroundColor = UIColor(white: 0, alpha: 0)
         reservation.modalPresentationStyle = .custom
         self.present(reservation, animated: true, completion: nil)
+        let localrequestable: Requestable = MainAPIEndPoint.init(path: "/reservation", httpMethod: .post)
+        let sendmodel = SendModel.empty
+        Network.requestReservation(with: localrequestable, dataType: ReservationModel.self, queryParameter: sendmodel) { result in
+            switch result {
+            case .success(let data):
+                reservation.insert(Entity: data)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
