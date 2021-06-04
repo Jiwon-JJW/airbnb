@@ -29,6 +29,7 @@
 		82DD85F12658D3650007A29C /* FindingAccommdationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DD85F02658D3650007A29C /* FindingAccommdationCondition.swift */; };
 		82FBF0D426538AB8009B4A1F /* TripPlaceCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBF0D326538AB8009B4A1F /* TripPlaceCollectionViewDataSource.swift */; };
 		82FBF0D626538E07009B4A1F /* RecommendTripCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBF0D526538E07009B4A1F /* RecommendTripCollectionViewDataSource.swift */; };
+		D40A07C32668D590008AC162 /* loginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A07C22668D590008AC162 /* loginController.swift */; };
 		D41786112664A79F002476FA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41786102664A79F002476FA /* Notification.swift */; };
 		D417863A26660A44002476FA /* MapCardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417863926660A44002476FA /* MapCardDataSource.swift */; };
 		D417863C26660C5C002476FA /* MapCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D417863B26660C5C002476FA /* MapCardCell.swift */; };
@@ -115,6 +116,7 @@
 		82DD85F02658D3650007A29C /* FindingAccommdationCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingAccommdationCondition.swift; sourceTree = "<group>"; };
 		82FBF0D326538AB8009B4A1F /* TripPlaceCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlaceCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		82FBF0D526538E07009B4A1F /* RecommendTripCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTripCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D40A07C22668D590008AC162 /* loginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginController.swift; sourceTree = "<group>"; };
 		D41786102664A79F002476FA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D417863926660A44002476FA /* MapCardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardDataSource.swift; sourceTree = "<group>"; };
 		D417863B26660C5C002476FA /* MapCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardCell.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				D417863926660A44002476FA /* MapCardDataSource.swift */,
 				D417864226675419002476FA /* RoomDetailInformationController.swift */,
 				8297D7612667717B0033F154 /* FinalReservationController.swift */,
+				D40A07C22668D590008AC162 /* loginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				82FBF0D626538E07009B4A1F /* RecommendTripCollectionViewDataSource.swift in Sources */,
 				D4DDA778265E82F000FE52FA /* CostGraphView.swift in Sources */,
 				82DD85F12658D3650007A29C /* FindingAccommdationCondition.swift in Sources */,
+				D40A07C32668D590008AC162 /* loginController.swift in Sources */,
 				D4DDA72B265BD9D400FE52FA /* RoomInformationCell.swift in Sources */,
 				8297D75B2665FB790033F154 /* MapViewController.swift in Sources */,
 				82FBF0D426538AB8009B4A1F /* TripPlaceCollectionViewDataSource.swift in Sources */,

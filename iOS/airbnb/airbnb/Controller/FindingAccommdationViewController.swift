@@ -58,7 +58,7 @@ class FindingAccommdationViewController: UIViewController {
         self.conditionTableView.dataSource = tableViewDataSource
         
         NotificationCenter.default.addObserver(self, selector: #selector(conditionDataUpdate), name: Notification.conditionDataUpdate, object: findingAccommdationCondition)
-        costGraphView.update(minCost: "0원", maxCost: "1,000,000원", averageCost: "qweqweqwe")
+        costGraphView.update(minCost: "0원", maxCost: "1,000,000원", averageCost: "")
         self.conditionTableView.dataSource = tableViewDataSource
         
         self.costGraphView.rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged), for: .valueChanged)
@@ -126,9 +126,7 @@ class FindingAccommdationViewController: UIViewController {
     @objc func conditionDataUpdate() {
         self.conditionTableView.reloadData()
         self.adultCountLabel.text = findingAccommdationCondition.peopleCount
-        self.costGraphView.update(
-            minCost: findingAccommdationCondition.decimalWon(value: findingAccommdationCondition.minCostDescription),
-            maxCost: findingAccommdationCondition.decimalWon(value: findingAccommdationCondition.maxCostDescription), averageCost: "0")
+        self.costGraphView.update(minCost: findingAccommdationCondition.minCostDescription, maxCost: findingAccommdationCondition.maxCostDescription, averageCost: "")
     }
     
     @IBAction func pressedPeopleMinus(_ sender: Any) {

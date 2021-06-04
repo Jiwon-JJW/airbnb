@@ -12,8 +12,8 @@ class FindingAccommodationTableViewCell: UITableViewCell {
     @IBOutlet weak var minvalue: UILabel!
     @IBOutlet weak var maxvalue: UILabel!
     
-    func update(minvalue: String?, maxvalue: String?) {
-        self.minvalue.text = minvalue ?? ""
-        self.maxvalue.text = maxvalue ?? ""
+    func update(minvalue: String, maxvalue: String) {
+        self.minvalue.text = minvalue
+        self.maxvalue.text = maxvalue
     }
 }

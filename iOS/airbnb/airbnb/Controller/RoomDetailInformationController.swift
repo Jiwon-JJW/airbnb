@@ -20,7 +20,6 @@ class RoomDetailInformationController: UIViewController {
     @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var checkInLabel: UILabel!
     @IBOutlet weak var reservationButton: UIButton!
     @IBOutlet weak var hostImageView: UIImageView!
     @IBOutlet weak var roomImageView: UIImageView!
@@ -56,9 +55,10 @@ class RoomDetailInformationController: UIViewController {
         self.reviewCountLabel.text = roomDetail.reviewCountDescription
         self.locationLabel.text = roomDetail.locationName
         self.propertyLabel.text = roomDetail.propertyType
-        self.hostNameLabel.text = roomDetail.host.name
+        self.hostNameLabel.text = roomDetail.host.nameDescription
         self.optionLabel.text = "\(roomDetail.maxOccupancyDesscription) • \(roomDetail.bedCountDescription) • \(roomDetail.bathCoutDescription)"
         self.descriptionLabel.text = roomDetail.description
+        self.priceLabel.text = roomDetail.priceDescription
     }
     
     func addImageView() {

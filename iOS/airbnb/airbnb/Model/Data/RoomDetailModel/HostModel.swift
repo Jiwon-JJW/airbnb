@@ -11,5 +11,9 @@ struct Host: Decodable {
     let name: String
     let imageUrl: String
     
+    var nameDescription: String {
+        return "호스트: \(name)"
+    }
+    
     static var empty = Self.init(name: "", imageUrl: "")
 }
