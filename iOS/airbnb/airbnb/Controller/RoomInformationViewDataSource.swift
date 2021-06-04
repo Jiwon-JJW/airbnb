@@ -9,7 +9,7 @@ import UIKit
 
 class RoomInformationViewDataSource: NSObject, UICollectionViewDataSource {
 
-    private let searchResult: SearchResult
+    private (set) var searchResult: SearchResult
     
     init(searchResult: SearchResult) {
         self.searchResult = searchResult
@@ -23,13 +23,18 @@ class RoomInformationViewDataSource: NSObject, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoomInformationCell", for: indexPath) as? RoomInformationCell else {
             return RoomInformationCell()
         }
-        cell.roomImageView.load(url: searchResult.properties[indexPath.row].images)
-        cell.ratingLabel.text = String(searchResult.properties[indexPath.row].rating) //스트링 변환 모델에서 합시다.
-        cell.reviewCountLabel.text = String(searchResult.properties[indexPath.row].reviewCount)
-        cell.roomNameLabel.text = searchResult.properties[indexPath.row].title
-        cell.priceLabel.text = String(searchResult.properties[indexPath.row].pricePerNight)
-        cell.totalPriceLabel.text = String(searchResult.properties[indexPath.row].totalPrice)
+        cell.update(imageUrl: searchResult.properties[indexPath.row].images,
+                    rating: searchResult.properties[indexPath.row].ratingDescription,
+                    reviewCount: searchResult.properties[indexPath.row].reviewCountDescription,
+                    roomName: searchResult.properties[indexPath.row].title,
+                    price: searchResult.properties[indexPath.row].priceDescription,
+                    totalPrice: searchResult.properties[indexPath.row].totalPriceDescription)
+
         return cell
+    }
+    
+    func update(searchResult: SearchResult){
+        self.searchResult = searchResult
     }
 }
 

@@ -15,14 +15,14 @@ final class FindingAccommdationCondition {
     private(set) var maxCost: Int
     private(set) var people: Int
     var peopleCount: String {
-        return "\(people)"
+        return people == 0 ? "1" : "\(people)"
     }
     var minCostDescription: String {
-        return minCost == 0 ? "" : "\(minCost)"
+        return minCost == 0 ? "" : minCost.decimalWon()
     }
     
     var maxCostDescription: String {
-        return maxCost == 0 ? "" : "\(maxCost)"
+        return maxCost == 0 ? "" : maxCost.decimalWon()
     }
     
     init(){
@@ -32,16 +32,6 @@ final class FindingAccommdationCondition {
         minCost = 0
         maxCost = 0
         people = 0
-    }
-    
-    func decimalWon(value: String) -> String {
-        let price = Int(value.replacingOccurrences(of: ",", with: "").replacingOccurrences(of: "원", with: "")) ?? 0
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        let result = numberFormatter.string(from: NSNumber(value: price))! + "원"
-        
-        return result
     }
     
     func insert(location: String) {

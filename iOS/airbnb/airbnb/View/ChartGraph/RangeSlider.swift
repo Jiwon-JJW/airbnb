@@ -11,10 +11,10 @@ class RangeSlider: UIControl {
     
     var minimumValue: CGFloat = 0
     var maximumValue: CGFloat = 1
-    var lowerValue: CGFloat = 0
-    var upperValue: CGFloat = 1
-    var trackTintColor = UIColor(white: 0.9, alpha: 1)
-    var trackHighlightTintColor = UIColor(red: 0, green: 0.45, blue: 0.94, alpha: 1)
+    var lowerValue: CGFloat = 0.1
+    var upperValue: CGFloat = 0.9
+    var trackTintColor: UIColor = .systemGray4
+    var trackHighlightTintColor: UIColor = .black
     
     let thumbImage = UIImage(systemName: "pause.circle") ?? UIImage()
     
@@ -38,12 +38,12 @@ class RangeSlider: UIControl {
         layer.addSublayer(trackLayer)
         
         lowerThumbImageView.image = thumbImage
+        lowerThumbImageView.tintColor = .black
         addSubview(lowerThumbImageView)
         
         upperThumbImageView.image = thumbImage
+        upperThumbImageView.tintColor = .black
         addSubview(upperThumbImageView)
-        
-        //updateLayerFrames()
     }
     
     required init?(coder: NSCoder) {
